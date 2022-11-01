@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 function Login() {
   const navigate = useNavigate();
   return (
-    <div className="backimage">
+    <div className="backgroundImg">
       <div className="logo">
         <div className="divider">
           <div className="dummy"></div>
@@ -47,7 +47,7 @@ function Login() {
                 </FormGroup>
                 {/* </FormControl> */}
               </Box>
-              <p className="fgtps">forgetpassword?</p>
+              <p className="fgtps">Forget Password?</p>
               <button onClick={() => navigate("dashboard")}>Login</button>
             </div>
           </div>

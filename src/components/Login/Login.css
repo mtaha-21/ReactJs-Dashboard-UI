@@ -1,4 +1,4 @@
-.backimage {
+.backgroundImg {
     background-image: url(/public/images/LOGIN.png);
     background-repeat: no-repeat;
     height: 100vh;
@@ -28,6 +28,7 @@
     background-color: white;
     flex-direction: row;
     flex: 30%;
+    margin-left: 20rem;
 }
 .dummy2 {
     flex: 10%;
@@ -100,13 +101,14 @@ button {
     }
     .login-container{
         flex:45%;
+        width: 100vw;
     }
     .dummy2{
         flex: 10%;
     }
 }
 @media(max-width:580px){
-    .backimage{
+    .backgroundImg{
         height: 100vh;
     }
     .logo{
@@ -116,14 +118,20 @@ button {
         flex: 35%;
     }
     .login-container{
-        flex: 50%;
+        flex: 40%;
+        margin-left: auto;
+        height: 70vh;
+        width: 100vw;
+        display: block;
+        justify-content: center;
+        align-items: center;
     }
     .dummy2{
         flex:15%
     }
 }
 @media  (max-width:475px){
-    .backimage{
+    .backgroundImg{
         background-image: none;
         height: 100vh;
     }
@@ -132,7 +140,7 @@ button {
 
     }
     .divider{
-        background-color: #043752;
+        background-color: #ffffff;
         height: 100vh;
     }
     .login-container{
@@ -143,7 +151,7 @@ button {
         justify-content: center;
         align-items: center;
         border-radius: 3.5px;
-        /* border: #043752 2px solid; */
+        border: #043752 2px solid;
     }
     .dummy{
         flex: 0%;

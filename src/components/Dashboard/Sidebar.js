@@ -28,13 +28,13 @@ import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 // import {SearchIcon,AccountCircle,MoreIcon} from '@mui/icons-material';
 import SearchIcon from "@mui/icons-material/Search";
-// import AccountCircle from '@mui/icons-material/AccountCircle';
+import AccountCircle from "@mui/icons-material/AccountCircle";
 import { styled, alpha } from "@mui/material/styles";
 // import { SearchIconWrapper} from '@mui/material';
 import InputBase from "@mui/material/InputBase";
 import Image from "./Image";
 // import MailIcon from '@mui/icons-material/Mail';
-// import NotificationsIcon from '@mui/icons-material/Notifications';
+import NotificationsIcon from "@mui/icons-material/Notifications";
 // import MoreIcon from '@mui/icons-material/MoreVert';
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -51,11 +51,11 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
-  borderRadius: theme.shape.borderRadius,
+  // borderRadius: theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
-  "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
+  // "&:hover": {
+  //   backgroundColor: alpha(theme.palette.common.white, 0.25),
+  // },
   marginLeft: 0,
   width: "100%",
   [theme.breakpoints.up("sm")]: {
@@ -81,13 +81,14 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create("width"),
+    backgroundColor: "white",
     width: "100%",
-    [theme.breakpoints.up("sm")]: {
-      width: "12ch",
-      "&:focus": {
-        width: "20ch",
-      },
-    },
+    // [theme.breakpoints.up("sm")]: {
+    //   width: "15ch",
+    //   "&:focus": {
+    //     width: "25ch",
+    //   },
+    // },
   },
 }));
 
@@ -269,44 +270,45 @@ function SidenavBar(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Search>
+          <Search style={{ color: "grey" }}>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Search…"
+              style={{ color: "grey" }}
+              placeholder="Search Something.."
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
-          {/* <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+          <Box sx={{ flexGrow: 1 }} />
+          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            {/* <IconButton size="large" aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="error">
                 <MailIcon />
               </Badge>
-            </IconButton>
+            </IconButton> */}
             <IconButton
               size="large"
-              aria-label="show 17 new notifications"
+              aria-label="show 1 new notifications"
               color="inherit"
             >
-              <Badge badgeContent={17} color="error">
+              <Badge badgeContent={1} color="error">
                 <NotificationsIcon />
               </Badge>
             </IconButton>
-            <IconButton
+            {/* <IconButton
               size="large"
               edge="end"
               aria-label="account of current user"
-              aria-controls={menuId}
+              // aria-controls={menuId}
               aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
+              // onClick={handleProfileMenuOpen}
               color="inherit"
             >
               <AccountCircle />
-            </IconButton>
+            </IconButton> */}
           </Box>
-          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+          {/* <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
               aria-label="show more"
@@ -317,7 +319,7 @@ function SidenavBar(props) {
             >
               <MoreIcon />
             </IconButton>
-          </Box> */}
+          </Box>  */}
         </Toolbar>
       </AppBar>
       {/* {renderMobileMenu}

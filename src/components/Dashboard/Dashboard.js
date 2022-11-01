@@ -1,11 +1,11 @@
 import * as React from "react";
 
-import SidenavBar from "./Sidenavbar";
+import Sidebar from "./Sidebar";
 
 export default function Dashboard() {
   return (
     <div className="nav-bar">
-      <SidenavBar />
+      <Sidebar />
     </div>
   );
 }

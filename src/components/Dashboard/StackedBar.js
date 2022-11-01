@@ -1,5 +1,6 @@
 import React from "react";
 import Chart from "react-apexcharts";
+import { Button } from "@mui/material";
 
 const StackedBar = (props) => {
   const data = {
@@ -26,8 +27,19 @@ const StackedBar = (props) => {
   return (
     <div className="app">
       <div style={{ display: "flex" }}>
-        <p style={{ fontSize: "0.8rem", color: "#043752" }}>Onboarded 200</p>
-        <button style={{ marginLeft: "8.5rem", width: "5rem" }}>submit</button>
+        <p style={{ fontSize: "0.7rem", color: "#043752" }}>Total Order:100</p>
+        {/* <button style={{ marginLeft: "8.5rem", width: "5rem" }}>Button</button> */}
+        <Button
+          variant="outlined"
+          style={{
+            color: "#043752",
+            marginLeft: "8.5rem",
+            width: "5rem",
+          }}
+          // variant="contained"
+        >
+          Input
+        </Button>
       </div>
       <div className="row">
         <div className="mixed-chart">
