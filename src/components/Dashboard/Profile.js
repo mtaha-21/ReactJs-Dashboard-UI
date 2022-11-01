@@ -30,7 +30,7 @@ function Image() {
         }}
       >
         <div>
-          <p>Organization</p>
+          <h4>Organization</h4>
           {/* <WorkIcon style={{ height: "120px" }} /> */}
           <img
             src={Organization}
@@ -39,7 +39,7 @@ function Image() {
           />
         </div>
         <div>
-          <p>Doctor</p>
+          <h4>Doctor</h4>
           {/* <LocalHospitalIcon style={{ height: "120px" }} /> */}
           <img
             src={doctors}
@@ -48,7 +48,7 @@ function Image() {
           />
         </div>
         <div>
-          <p>Staff</p>
+          <h4>Staff</h4>
           {/* <PeopleIcon style={{ height: "120px" }} /> */}
           <img
             src={staff}

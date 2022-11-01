@@ -13,29 +13,20 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
+// import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
-// import { styled } from '@mui/material/styles';
 import Badge from "@mui/material/Badge";
 import Paper from "@mui/material/Paper";
-// import {DashboardIcon, AppRegistrationIcon,AccessibilityIcon ,WorkspacesIcon,ManageAccountsIcon,FilterFramesIcon,BugReportIcon,AddShoppingCartIcon,ReportIcon,InventoryIcon,AttachMoneyIcon,SupervisorAccountIcon,AnalyticsIcon,ManageSearchIcon,SyncAltIcon} from '@mui/icons-material';
 import Donut1 from "./Donut1";
 import Donut2 from "./Donut2";
 import Bar1 from "./Bar1";
 import Bar2 from "./Bar2";
 import StackedBar from "./StackedBar";
-import MenuItem from "@mui/material/MenuItem";
-import Menu from "@mui/material/Menu";
-// import {SearchIcon,AccountCircle,MoreIcon} from '@mui/icons-material';
 import SearchIcon from "@mui/icons-material/Search";
-import AccountCircle from "@mui/icons-material/AccountCircle";
 import { styled, alpha } from "@mui/material/styles";
-// import { SearchIconWrapper} from '@mui/material';
 import InputBase from "@mui/material/InputBase";
-import Image from "./Image";
-// import MailIcon from '@mui/icons-material/Mail';
+import Profile from "./Profile";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-// import MoreIcon from '@mui/icons-material/MoreVert';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: (theme.palette.mode = "rgb(213, 216, 222)"),
@@ -51,11 +42,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
-  // borderRadius: theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
-  // "&:hover": {
-  //   backgroundColor: alpha(theme.palette.common.white, 0.25),
-  // },
   marginLeft: 0,
   width: "100%",
   [theme.breakpoints.up("sm")]: {
@@ -98,103 +85,6 @@ function SidenavBar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
-  // const [anchorEl, setAnchorEl] = React.useState(null);
-  // const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-
-  // const isMenuOpen = Boolean(anchorEl);
-  // const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-  // const handleProfileMenuOpen = (event) => {
-  //   setAnchorEl(event.currentTarget);
-  // };
-
-  // const handleMobileMenuClose = () => {
-  //   setMobileMoreAnchorEl(null);
-  // };
-
-  // const handleMenuClose = () => {
-  //   setAnchorEl(null);
-  //   handleMobileMenuClose();
-  // };
-
-  // const handleMobileMenuOpen = (event) => {
-  //   setMobileMoreAnchorEl(event.currentTarget);
-  // };
-
-  // const menuId = 'primary-search-account-menu';
-  // const renderMenu = (
-  //   <Menu
-  //     anchorEl={anchorEl}
-  //     anchorOrigin={{
-  //       vertical: 'top',
-  //       horizontal: 'right',
-  //     }}
-  //     id={menuId}
-  //     keepMounted
-  //     transformOrigin={{
-  //       vertical: 'top',
-  //       horizontal: 'right',
-  //     }}
-  //     open={isMenuOpen}
-  //     onClose={handleMenuClose}
-  //   >
-  //     <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-  //     <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-  //   </Menu>
-  // );
-
-  // const mobileMenuId = 'primary-search-account-menu-mobile';
-  // const renderMobileMenu = (
-  //   <Menu
-  //     anchorEl={mobileMoreAnchorEl}
-  //     anchorOrigin={{
-  //       vertical: 'top',
-  //       horizontal: 'right',
-  //     }}
-  //     id={mobileMenuId}
-  //     keepMounted
-  //     transformOrigin={{
-  //       vertical: 'top',
-  //       horizontal: 'right',
-  //     }}
-  //     open={isMobileMenuOpen}
-  //     onClose={handleMobileMenuClose}
-  //   >
-  //     <MenuItem>
-  //       <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-  //         <Badge badgeContent={4} color="error">
-  //           <MailIcon />
-  //         </Badge>
-  //       </IconButton>
-  //       <p>Messages</p>
-  //     </MenuItem>
-  //     <MenuItem>
-  //       <IconButton
-  //         size="large"
-  //         aria-label="show 17 new notifications"
-  //         color="inherit"
-  //       >
-  //         <Badge badgeContent={17} color="error">
-  //           <NotificationsIcon />
-  //         </Badge>
-  //       </IconButton>
-  //       <p>Notifications</p>
-  //     </MenuItem>
-  //     <MenuItem onClick={handleProfileMenuOpen}>
-  //       <IconButton
-  //         size="large"
-  //         aria-label="account of current user"
-  //         aria-controls="primary-search-account-menu"
-  //         aria-haspopup="true"
-  //         color="inherit"
-  //       >
-  //         <AccountCircle />
-  //       </IconButton>
-  //       <p>Profile</p>
-  //     </MenuItem>
-  //   </Menu>
-  // );
-
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -217,13 +107,13 @@ function SidenavBar(props) {
           "Accussion",
           "Operations",
           "User Management",
-          "Censar Managment",
+          "Centerr Managment",
           "Test Management",
           "Order Management",
           "Report Management",
           "Inventory",
           "Finance",
-          "Masters",
+          "Monitor",
           "Analytics",
           "Advance Search",
           "Activity log",
@@ -406,7 +296,7 @@ function SidenavBar(props) {
             </Grid>
             <Grid item xs={12} md={6} lg={4}>
               <Item>
-                <Image />
+                <Profile />
               </Item>
             </Grid>
             <Grid item xs={12} md={6} lg={4}>
