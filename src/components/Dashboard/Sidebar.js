@@ -27,6 +27,21 @@ import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import Profile from "./Profile";
 import NotificationsIcon from "@mui/icons-material/Notifications";
+import { AccountCircle } from "@mui/icons-material";
+import GridViewIcon from "@mui/icons-material/GridView";
+import TagFacesIcon from "@mui/icons-material/TagFaces";
+import MedicalServicesIcon from "@mui/icons-material/MedicalServices";
+import PieChartIcon from "@mui/icons-material/PieChart";
+import CallMergeIcon from "@mui/icons-material/CallMerge";
+import PhonelinkSetupIcon from "@mui/icons-material/PhonelinkSetup";
+import StorefrontIcon from "@mui/icons-material/Storefront";
+import InventoryIcon from "@mui/icons-material/Inventory";
+import SummarizeIcon from "@mui/icons-material/Summarize";
+import PublicIcon from "@mui/icons-material/Public";
+import MonitorIcon from "@mui/icons-material/Monitor";
+import AnalyticsIcon from "@mui/icons-material/Analytics";
+import FlagIcon from "@mui/icons-material/Flag";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: (theme.palette.mode = "rgb(213, 216, 222)"),
@@ -102,21 +117,186 @@ function SidenavBar(props) {
       {/* <Divider /> */}
       <List style={{ paddingTop: "25%", overflow: "none", height: "90%" }}>
         {[
-          "Dashboard",
-          "Registration",
-          "Accussion",
-          "Operations",
-          "User Management",
-          "Centerr Managment",
-          "Test Management",
-          "Order Management",
-          "Report Management",
-          "Inventory",
-          "Finance",
-          "Monitor",
-          "Analytics",
-          "Advance Search",
-          "Activity log",
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              flexWrap: "wrap",
+              gap: "1rem",
+            }}
+          >
+            <GridViewIcon />
+            <span>Dashboard</span>
+          </div>,
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              flexWrap: "wrap",
+              gap: "1rem",
+            }}
+          >
+            <TagFacesIcon />
+            <span>Registration</span>
+          </div>,
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              flexWrap: "wrap",
+              gap: "1rem",
+            }}
+          >
+            <MedicalServicesIcon />
+            <span>Accussion</span>
+          </div>,
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              flexWrap: "wrap",
+              gap: "1rem",
+            }}
+          >
+            <PieChartIcon />
+            <span>Operations</span>
+          </div>,
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              flexWrap: "wrap",
+              gap: "1rem",
+            }}
+          >
+            <CallMergeIcon />
+            <span>User Management</span>
+          </div>,
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              flexWrap: "wrap",
+              gap: "1rem",
+            }}
+          >
+            <StorefrontIcon />
+            <span>Center Management</span>
+          </div>,
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              flexWrap: "wrap",
+              gap: "1rem",
+            }}
+          >
+            <PhonelinkSetupIcon />
+            <span>Test Management</span>
+          </div>,
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              flexWrap: "wrap",
+              gap: "1rem",
+            }}
+          >
+            <InventoryIcon />
+            <span>Order Management</span>
+          </div>,
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              flexWrap: "wrap",
+              gap: "1rem",
+            }}
+          >
+            <SummarizeIcon />
+            <span>Report Management</span>
+          </div>,
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              flexWrap: "wrap",
+              gap: "1rem",
+            }}
+          >
+            <InventoryIcon />
+            <span>Inventory</span>
+          </div>,
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              flexWrap: "wrap",
+              gap: "1rem",
+            }}
+          >
+            <PublicIcon />
+            <span>Finance</span>
+          </div>,
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              flexWrap: "wrap",
+              gap: "1rem",
+            }}
+          >
+            <MonitorIcon />
+            <span>Monitor</span>
+          </div>,
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              flexWrap: "wrap",
+              gap: "1rem",
+            }}
+          >
+            <AnalyticsIcon />
+            <span>Analytics</span>
+          </div>,
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              flexWrap: "wrap",
+              gap: "1rem",
+            }}
+          >
+            <SearchIcon />
+            <span>Advance Search</span>
+          </div>,
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              flexWrap: "wrap",
+              gap: "1rem",
+            }}
+          >
+            <FlagIcon />
+            <span>Activity log</span>
+          </div>,
+          // "Dashboard",
+          // "Registration",
+          // "Accussion",
+          // "Operations",
+          // "User Management",
+          // "Centerr Managment",
+          // "Test Management",
+          // "Order Management",
+          // "Report Management",
+          // "Inventory",
+          // "Finance",
+          // "Monitor",
+          // "Analytics",
+          // "Advance Search",
+          // "Activity log",
         ].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton
@@ -182,8 +362,9 @@ function SidenavBar(props) {
               aria-label="show 1 new notifications"
               color="inherit"
             >
-              <Badge badgeContent={1} color="error">
-                <NotificationsIcon />
+              <Badge color="error">
+                <NotificationsIcon style={{ marginRight: "1rem" }} />
+                <AccountCircle />
               </Badge>
             </IconButton>
             {/* <IconButton

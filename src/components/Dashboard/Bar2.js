@@ -15,7 +15,7 @@ const Bar2 = (props) => {
     series: [
       {
         name: "series-1",
-        data: [120, 200, 100, 100],
+        data: [120, 180, 100, 100],
       },
     ],
   };
