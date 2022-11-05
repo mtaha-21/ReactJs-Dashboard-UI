@@ -8,7 +8,7 @@ function Datepick() {
       <input
         style={{
           fontSize: "11px",
-          backgroundColor: "rgb(213, 216, 222)",
+          backgroundColor: "rgba(4, 55, 82, 0.2)",
           marginLeft: "10rem",
         }}
         type="date"

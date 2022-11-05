@@ -1,4 +1,5 @@
-import * as React from "react";
+// import * as React from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -12,6 +13,8 @@ import ListItemButton from "@mui/material/ListItemButton";
 // import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
+import Menu from "@mui/icons-material/Menu";
+import { MenuItem } from "@mui/material";
 import Toolbar from "@mui/material/Toolbar";
 // import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
@@ -41,8 +44,10 @@ import PublicIcon from "@mui/icons-material/Public";
 import MonitorIcon from "@mui/icons-material/Monitor";
 import AnalyticsIcon from "@mui/icons-material/Analytics";
 import FlagIcon from "@mui/icons-material/Flag";
+import CircleNotificationsIcon from "@mui/icons-material/CircleNotifications";
+import LogoutIcon from "@mui/icons-material/Logout";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-
+import { useNavigate } from "react-router-dom";
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: (theme.palette.mode = "rgb(213, 216, 222)"),
   ...theme.typography.body2,
@@ -84,6 +89,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create("width"),
     backgroundColor: "white",
+    // chng
     width: "100%",
     // [theme.breakpoints.up("sm")]: {
     //   width: "15ch",
@@ -319,7 +325,7 @@ function SidenavBar(props) {
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
-
+  const navigate = useNavigate();
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -340,7 +346,10 @@ function SidenavBar(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Search style={{ color: "grey" }}>
+          <Search
+            sx={{ display: { xs: "none", sm: "block" } }}
+            style={{ color: "grey" }}
+          >
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -363,8 +372,8 @@ function SidenavBar(props) {
               color="inherit"
             >
               <Badge color="error">
-                <NotificationsIcon style={{ marginRight: "1rem" }} />
-                <AccountCircle />
+                <CircleNotificationsIcon style={{ marginRight: "1rem" }} />
+                {/* <AccountCircle /> */}
               </Badge>
             </IconButton>
             {/* <IconButton
@@ -379,18 +388,23 @@ function SidenavBar(props) {
               <AccountCircle />
             </IconButton> */}
           </Box>
-          {/* <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton
               size="large"
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
+              aria-label="show 1 new notifications"
               color="inherit"
             >
-              <MoreIcon />
+              <Badge color="error">
+                <LogoutIcon
+                  onClick={() => {
+                    localStorage.removeItem("token");
+                    navigate("/");
+                  }}
+                  style={{ marginRight: "1rem" }}
+                />
+              </Badge>
             </IconButton>
-          </Box>  */}
+          </Box>
         </Toolbar>
       </AppBar>
       {/* {renderMobileMenu}

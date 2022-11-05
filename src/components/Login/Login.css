@@ -7,7 +7,7 @@
 .logo {
     background-image: url(/public/images/Background.png);
     background-repeat: no-repeat;
-    background-position-x: 25%;
+    background-position-x: 26%;
     background-position-y: center;
 }
 .divider {
@@ -31,82 +31,163 @@
     margin-left: 20rem;
 }
 .dummy2 {
-    flex: 10%;
+    flex: 9%;
 }
 .input-container {
-    margin: 5rem 2rem 5rem 2rem;
+    /* margin: 6rem 2rem 5rem 2rem; */
+    margin:6rem 1rem 7rem 1rem;
+    width: 75%;
 }
-Input {
+/* Input {
     border: none;
-}
+    
+} */
 .heading {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
-.heading h2 {
-    font-weight: 400;
+.heading h3 {
+    font-weight: 500;
     color: #043752;
+    cursor: default;
 }
 .heading span {
-    font-weight: 450;
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 1.4rem;
     color: #043752;
 }
+/* span:hover{
+    cursor: pointer;
+} */
 button {
     padding: 3px 0px 3px 0px;
     width: 100%;
-    background-color: #2C566D;
-    border-radius: 5px;
+    background-color: #043752;
+    border-radius: 3px;
     color: rgba(255, 255, 255, 0.833);
     height: 2rem;
 }
 .input {
-    width: 100%;
-    background-color: rgb(155, 169, 196);
+    /* width: 100%; */
+    /* background-color: rgb(155, 169, 196); */
     border-radius: 5px;
     color: #043752;
     border: none;
     margin: 1rem 0rem;
+    width: 20rem;
+    
 }
+input::placeholder{
+    color: rgba(125, 125, 125, 0.833);
+    text-align: left;
+}
+.wrapper {
+    position:relative;
+    width: 100%;
+  }
+  .icon {
+    height: 1.5rem;
+    width: 1.5rem;
+    /* background-color: red; */
+    padding: 4px;
+    position: absolute;
+    /* box-sizing:border-box; */
+    top:50%;
+    left:2px;
+    transform: translateY(-50%);
+  }
 .fgtps {
     float:right;
     color: #043752;
     margin-bottom: 1rem;
 }
+.fgtps:hover{
+    cursor: pointer;
+}
 .fgtps:hover {
     cursor: pointer;
 }
 
-@media (max-width:940px){
+/* media query for size of 768px laptop*/
+@media (min-width:768px) and (max-width:1224px){
+    .backgroundImg{
+        background-image: url(/public/images/LOGIN.png);
+        height: 100vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
     .logo{
-        background-position-x:15% ;
-
+        background-image: url(/public/images/Background.png);
+        background-repeat: no-repeat;
+        background-position-x:25%;
+        background-position-y:center;
     }
     .dummy{
         flex: 55%;
     }
     .login-container{
         flex: 40%;
+        margin-left: auto;
+        height: 70vh;
+        width: 100vw;
+        display: block;
+        justify-content: center;
+        align-items: center;
     }
     .dummy2{
-        flex:10%
+        flex:25%
+    }
+    button {
+        padding: 3px 0px 3px 0px;
+        width: 50%;
+        background-color: #043752;
+        border-radius: 3px;
+        color: rgba(255, 255, 255, 0.833);
+        height: 2rem;
     }
 }
+/* media query for size of 768px tab*/
 
-@media (max-width:780px){
+@media (min-width:581px) and (max-width:767px){
+    .backgroundImg{
+        background-image: url(/public/images/LOGIN.png);
+        height: 100vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
     .logo{
-        background-position-x:10% ;
-      
+        background-image: url(/public/images/Background.png);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position-x:25%;
+        background-position-y:center;
     }
     .dummy{
-        flex: 35%;
+        flex: 50%;
     }
     .login-container{
-        flex:45%;
+        flex: 40%;
+        margin-left: auto;
+        height: 70vh;
         width: 100vw;
+        display: block;
+        justify-content: center;
+        align-items: center;
     }
     .dummy2{
-        flex: 10%;
+        flex:25%
+    }
+    button {
+        padding: 3px 0px 3px 0px;
+        width: 50%;
+        background-color: #043752;
+        border-radius: 3px;
+        color: rgba(255, 255, 255, 0.833);
+        height: 2rem;
     }
 }
+/*media query for size of mobile 580px*/
+
 @media(max-width:580px){
     .backgroundImg{
         height: 100vh;
@@ -115,7 +196,7 @@ button {
         background-image:none ;
     }
     .dummy{
-        flex: 35%;
+        flex: 15%;
     }
     .login-container{
         flex: 40%;
@@ -129,8 +210,19 @@ button {
     .dummy2{
         flex:15%
     }
+    button {
+        padding: 3px 0px 3px 0px;
+        width: 50%;
+        background-color: #043752;
+        border-radius: 3px;
+        color: rgba(255, 255, 255, 0.833);
+        height: 2rem;
+    }
 }
-@media  (max-width:475px){
+
+/*media query for size of mobile 475px*/
+
+@media (min-width:240px) and (max-width:475px){
     .backgroundImg{
         background-image: none;
         height: 100vh;
@@ -151,12 +243,39 @@ button {
         justify-content: center;
         align-items: center;
         border-radius: 3.5px;
-        border: #043752 2px solid;
+        /* border: #043752 2px solid; */
+        background-color: #7598ab;
+    }
+    input::placeholder{
+        color: rgba(229, 228, 228, 0.833);
+        text-align: left;
+    }
+    .heading {
+        margin-bottom: 3rem;
+    }
+    .heading h3 {
+        font-weight: 700;
+        color: #043752;
+        cursor: default;
+    }
+    .heading span {
+        margin-top: 10px;
+        font-weight: 1000;
+        font-size: 1.4rem;
+        color: #043752;
     }
     .dummy{
-        flex: 0%;
+        flex: 2%;
     }
     .dummy2{
-        flex: 0%;
+        flex: 2%;
+    }
+    button {
+        padding: 3px 0px 3px 0px;
+        width: 50%;
+        background-color: #043752;
+        border-radius: 3px;
+        color: rgba(255, 255, 255, 0.833);
+        height: 2rem;
     }
 }

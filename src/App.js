@@ -12,7 +12,13 @@ function App() {
         <Route
           path="/"
           element={
-            <Suspense fallback={<div>please wait...</div>}>
+            <Suspense
+              fallback={
+                <div style={{ fontSize: "5rem", color: "#2C566D" }}>
+                  please wait...
+                </div>
+              }
+            >
               <Login />
             </Suspense>
           }
@@ -22,7 +28,7 @@ function App() {
           element={
             <Suspense
               fallback={
-                <div style={{ fontSize: "6rem", color: "#2C566D" }}>
+                <div style={{ fontSize: "5rem", color: "#2C566D" }}>
                   please wait...
                 </div>
               }
