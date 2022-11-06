@@ -1,5 +1,5 @@
 // import * as React from "react";
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -9,6 +9,7 @@ import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
+import Avatar from "@mui/material";
 import ListItemButton from "@mui/material/ListItemButton";
 // import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from "@mui/material/ListItemText";
@@ -29,6 +30,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import Profile from "./Profile";
+import InputAdornment from "@mui/material";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import { AccountCircle } from "@mui/icons-material";
 import GridViewIcon from "@mui/icons-material/GridView";
@@ -48,6 +50,7 @@ import CircleNotificationsIcon from "@mui/icons-material/CircleNotifications";
 import LogoutIcon from "@mui/icons-material/Logout";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useNavigate } from "react-router-dom";
+import FadeMenu from "./FadeMenu";
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: (theme.palette.mode = "rgb(213, 216, 222)"),
   ...theme.typography.body2,
@@ -59,18 +62,38 @@ const Item = styled(Paper)(({ theme }) => ({
   marginLeft: "3rem",
   boxShadow: "2px 2px 1px rgba(145, 153, 153, 0.7)",
 }));
-
-const Search = styled("div")(({ theme }) => ({
-  position: "relative",
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  marginLeft: 0,
-  width: "100%",
+const UserBox = styled(Box)(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
+  gap: "10px",
   [theme.breakpoints.up("sm")]: {
-    marginLeft: theme.spacing(1),
-    width: "auto",
+    display: "none",
   },
 }));
+const StyledToolbar = styled(Toolbar)({
+  display: "flex",
+  justifyContent: "space-between",
+});
 
+// const Search = styled("div")(({ theme }) => ({
+//   position: "relative",
+//   backgroundColor: alpha(theme.palette.common.white, 0.15),
+//   marginLeft: 0,
+//   width: "100%",
+//   [theme.breakpoints.up("sm")]: {
+//     marginLeft: theme.spacing(1),
+//     width: "auto",
+//   },
+// }));
+const Search = styled("div")(({ theme }) => ({
+  backgroundColor: "white",
+  padding: "0 10px",
+  borderRadius: theme.shape.borderRadius,
+  width: "20%",
+  [theme.breakpoints.down("sm ")]: {
+    backgroundColor: "red",
+  },
+}));
 const SearchIconWrapper = styled("div")(({ theme }) => ({
   padding: theme.spacing(0, 2),
   height: "100%",
@@ -80,7 +103,14 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
   alignItems: "center",
   justifyContent: "center",
 }));
-
+const Icons = styled(Box)(({ theme }) => ({
+  display: "none",
+  alignItems: "center",
+  gap: "20px",
+  [theme.breakpoints.up("sm")]: {
+    display: "flex",
+  },
+}));
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: "inherit",
   "& .MuiInputBase-input": {
@@ -115,6 +145,8 @@ function SidenavBar(props) {
       style={{
         backgroundColor: "#2C566D",
         height: "100vh",
+        // chng
+        // marginTop: "25%",
         overflow: "hidden",
         borderRight: "solid 2px #2C66D",
       }}
@@ -326,6 +358,7 @@ function SidenavBar(props) {
   const container =
     window !== undefined ? () => window().document.body : undefined;
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -333,10 +366,12 @@ function SidenavBar(props) {
         position="fixed"
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
+          // chng
           ml: { sm: `${drawerWidth}px` },
         }}
       >
-        <Toolbar style={{ backgroundColor: "#2C566D" }}>
+        <StyledToolbar style={{ backgroundColor: "#2C566D" }}>
+          {/* <Toolbar style={{ backgroundColor: "#2C566D" }}> */}
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -346,7 +381,7 @@ function SidenavBar(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Search
+          {/* <Search
             sx={{ display: { xs: "none", sm: "block" } }}
             style={{ color: "grey" }}
           >
@@ -358,9 +393,13 @@ function SidenavBar(props) {
               placeholder="Search Something.."
               inputProps={{ "aria-label": "search" }}
             />
+          </Search> */}
+          <Search>
+            {/* <SearchIcon /> */}
+            <InputBase placeholder="search..." />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+          <Box sx={{ display: { xs: "flex", md: "flex" } }}>
             {/* <IconButton size="large" aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="error">
                 <MailIcon />
@@ -388,7 +427,7 @@ function SidenavBar(props) {
               <AccountCircle />
             </IconButton> */}
           </Box>
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+          {/* <Box sx={{ display: { xs: "flex", md: "flex" } }}>
             <IconButton
               size="large"
               aria-label="show 1 new notifications"
@@ -404,8 +443,10 @@ function SidenavBar(props) {
                 />
               </Badge>
             </IconButton>
-          </Box>
-        </Toolbar>
+          </Box> */}
+          <FadeMenu />
+          {/* </Toolbar> */}
+        </StyledToolbar>
       </AppBar>
       {/* {renderMobileMenu}
       {renderMenu} */}
