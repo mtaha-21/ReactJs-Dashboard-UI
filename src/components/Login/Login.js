@@ -12,6 +12,36 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 // import { Link } from 'react-router-dom'
 function Login() {
+  // chng
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  // console.log({ username, password });
+  const handleUsername = (e) => {
+    setUsername(e.target.value);
+  };
+
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+  };
+  const handleApi = () => {
+    console.log({ username, password });
+    axios
+      .post("https://reqres.in/api/login", {
+        username: username,
+        password: password,
+      })
+      .then((result) => {
+        console.log(result.data);
+        // alert("success");
+        localStorage.setItem("token", result.data.token);
+        navigate("/dashboard");
+      })
+      .catch((error) => {
+        alert("service error");
+        console.log(error);
+      });
+  };
+
   const navigate = useNavigate();
   return (
     <div className="backgroundImg">
@@ -48,6 +78,8 @@ function Login() {
                         // id="input-with-icon-adornment"
                         // startAdornment={<Person2Icon />}
                         placeholder="User Name"
+                        value={username}
+                        onChange={handleUsername}
                       />
                     </div>
                   </div>
@@ -69,6 +101,8 @@ function Login() {
                         // id="input-with-icon-adornment"
                         // startAdornment={<Person2Icon />}
                         placeholder="Password"
+                        value={password}
+                        onChange={handlePassword}
                       />
                     </div>
                   </div>
@@ -92,7 +126,7 @@ function Login() {
                 {" "}
                 <p className="fgtps">Forget Password?</p>
               </span>
-              <button onClick={() => navigate("dashboard")}>Login</button>
+              <button onClick={handleApi}>Login</button>
             </div>
           </div>
           <div className="dummy2"></div>

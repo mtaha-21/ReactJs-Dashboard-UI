@@ -54,7 +54,7 @@ const Item = styled(Paper)(({ theme }) => ({
   height: "16rem",
   // width: "90%",
   width: "20rem",
-  marginLeft: "2rem",
+  marginLeft: "1rem",
   boxShadow: "3px 3px 2px rgba(145, 153, 153, 0.7)",
 }));
 const SearchIconWrapper = styled("div")(({ theme }) => ({

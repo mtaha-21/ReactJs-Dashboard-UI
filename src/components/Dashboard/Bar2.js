@@ -24,9 +24,7 @@ const Bar2 = (props) => {
   return (
     <div className="app">
       <div style={{ display: "flex" }}>
-        <p style={{ fontSize: "0.7rem", color: "#043752" }}>
-          Total Patients 12
-        </p>
+        <p style={{ fontSize: "0.7rem", color: "#043752" }}>Total Patient 12</p>
         {/* <button style={{ marginLeft: "8.5rem", width: "5rem" }}>Button</button> */}
         {/* <Button
           variant="outlined"
