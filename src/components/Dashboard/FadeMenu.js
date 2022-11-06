@@ -5,6 +5,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Fade from "@mui/material/Fade";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import { useNavigate } from "react-router-dom";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 export default function FadeMenu() {
   const navigate = useNavigate();
@@ -20,6 +21,7 @@ export default function FadeMenu() {
   return (
     <div>
       <Button
+        // style={{ marginRight: "5rem" }}
         id="fade-button"
         aria-controls={open ? "fade-menu" : undefined}
         aria-haspopup="true"
@@ -46,7 +48,8 @@ export default function FadeMenu() {
             navigate("/");
           }}
         >
-          Logout
+          <LogoutIcon fontSize="small" />
+          <span style={{ size: "1.5rem", padding: "1px" }}>Logout</span>
         </MenuItem>
       </Menu>
     </div>

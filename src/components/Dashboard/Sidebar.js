@@ -83,9 +83,10 @@ const StyledToolbar = styled(Toolbar)({
 // }));
 const Search = styled("div")(({ theme }) => ({
   backgroundColor: "white",
-  padding: "0 10px",
+  padding: "2px 10px",
+  marginLeft: "16rem",
   borderRadius: theme.shape.borderRadius,
-  width: "20%",
+  width: "15%",
 }));
 
 const drawerWidth = 260;
@@ -101,11 +102,12 @@ function SidenavBar(props) {
   const drawer = (
     <div
       style={{
-        backgroundColor: "#032b40",
+        backgroundColor: "#e6e8ed",
         height: "100vh",
         // chng
         // marginTop: "25%",
-        overflow: "hidden",
+        // overflow: "hidden",
+        marginTop: "0.5rem",
         borderRight: "solid 2px #2C66D",
       }}
     >
@@ -320,11 +322,12 @@ function SidenavBar(props) {
       <CssBaseline />
       <AppBar
         position="fixed"
-        sx={{
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
-          // chng
-          ml: { sm: `${drawerWidth}px` },
-        }}
+        // sx={{
+        //   width: { sm: `calc(100% - ${drawerWidth}px)` },
+        //   // chng
+        //   ml: { sm: `${drawerWidth}px` },
+        // }}
+        sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
       >
         <StyledToolbar style={{ backgroundColor: "#032b40" }}>
           <IconButton
@@ -336,14 +339,16 @@ function SidenavBar(props) {
           >
             <MenuIcon />
           </IconButton>
-          <SearchIconWrapper>
+          <SearchIconWrapper sx={{ display: { xs: "none", md: "flex" } }}>
             <SearchIcon
+              // sx={{ display: { xs: "none", md: "flex" } }}
               style={{
                 color: "#043752",
+                marginLeft: "16rem",
               }}
             />
           </SearchIconWrapper>
-          <Search>
+          <Search sx={{ display: { xs: "none", md: "flex" } }}>
             <InputBase
               style={{ marginLeft: "1.7rem" }}
               placeholder="search.."
@@ -351,19 +356,14 @@ function SidenavBar(props) {
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "flex", md: "flex" } }}>
-            {/* <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="error">
-                <MailIcon />
-              </Badge>
-            </IconButton> */}
             <IconButton
               size="large"
               aria-label="show 1 new notifications"
               color="inherit"
+              // style={{ marginRight: "1rem" }}
             >
               <Badge color="error">
-                <CircleNotificationsIcon style={{ marginRight: "0rem" }} />
-                {/* <AccountCircle /> */}
+                <CircleNotificationsIcon />
               </Badge>
             </IconButton>
           </Box>
