@@ -1,7 +1,7 @@
 import React from "react";
 import Chart from "react-apexcharts";
 import { Button } from "@mui/material";
-
+import Datepick from "./datepicker";
 const Bar2 = (props) => {
   const data = {
     options: {
@@ -11,6 +11,7 @@ const Bar2 = (props) => {
       xaxis: {
         categories: ["Oct21", "Nov21", "Dec21", "Jan22"],
       },
+      // title: { text: "Patients 12" },
     },
     series: [
       {
@@ -23,9 +24,11 @@ const Bar2 = (props) => {
   return (
     <div className="app">
       <div style={{ display: "flex" }}>
-        <p style={{ fontSize: "0.7rem", color: "#043752" }}>Patients 12</p>
+        <p style={{ fontSize: "0.7rem", color: "#043752" }}>
+          Total Patients 12
+        </p>
         {/* <button style={{ marginLeft: "8.5rem", width: "5rem" }}>Button</button> */}
-        <Button
+        {/* <Button
           variant="outlined"
           style={{
             color: "#043752",
@@ -33,9 +36,9 @@ const Bar2 = (props) => {
             width: "5rem",
           }}
           // variant="contained"
-        >
-          Input
-        </Button>
+        > */}
+        <Datepick />
+        {/* </Button> */}
       </div>
       <div className="row">
         <div className="mixed-chart">

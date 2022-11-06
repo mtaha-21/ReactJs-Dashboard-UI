@@ -1,13 +1,14 @@
 import React from "react";
 import Chart from "react-apexcharts";
 import { Button } from "@mui/material";
-
+import Datepick from "./datepicker";
 const Bar1 = (props) => {
   const data = {
     options: {
       chart: {
         id: "basic-bar",
       },
+      // title: { text: "Onboard 200" },
       xaxis: {
         categories: ["Oct21", "Nov21", "Dec21", "Jan22"],
       },
@@ -25,7 +26,7 @@ const Bar1 = (props) => {
       <div style={{ display: "flex" }}>
         <p style={{ fontSize: "0.7rem", color: "#043752" }}>Onboarded 200</p>
         {/* <button style={{ marginLeft: "8.5rem", width: "5rem" }}>Button</button> */}
-        <Button
+        {/* <Button
           variant="outlined"
           style={{
             color: "#043752",
@@ -33,9 +34,9 @@ const Bar1 = (props) => {
             width: "5rem",
           }}
           // variant="contained"
-        >
-          Input
-        </Button>
+        > */}
+        <Datepick />
+        {/* </Button> */}
       </div>
       <div className="row">
         <div className="mixed-chart">

@@ -8,8 +8,9 @@ function Datepick() {
       <input
         style={{
           fontSize: "11px",
-          backgroundColor: "rgba(4, 55, 82, 0.2)",
-          marginLeft: "10rem",
+          backgroundColor: "rgb(213, 216, 222)",
+          marginLeft: "7rem",
+          background: "rgba(4, 55, 82, 0.2)",
         }}
         type="date"
         onChange={(e) => setDate(e.target.value)}

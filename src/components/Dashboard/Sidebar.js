@@ -1,5 +1,5 @@
 // import * as React from "react";
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -9,13 +9,10 @@ import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import Avatar from "@mui/material";
 import ListItemButton from "@mui/material/ListItemButton";
 // import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
-import Menu from "@mui/icons-material/Menu";
-import { MenuItem } from "@mui/material";
 import Toolbar from "@mui/material/Toolbar";
 // import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
@@ -27,12 +24,9 @@ import Bar1 from "./Bar1";
 import Bar2 from "./Bar2";
 import StackedBar from "./StackedBar";
 import SearchIcon from "@mui/icons-material/Search";
-import { styled, alpha } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import Profile from "./Profile";
-import InputAdornment from "@mui/material";
-import NotificationsIcon from "@mui/icons-material/Notifications";
-import { AccountCircle } from "@mui/icons-material";
 import GridViewIcon from "@mui/icons-material/GridView";
 import TagFacesIcon from "@mui/icons-material/TagFaces";
 import MedicalServicesIcon from "@mui/icons-material/MedicalServices";
@@ -47,9 +41,9 @@ import MonitorIcon from "@mui/icons-material/Monitor";
 import AnalyticsIcon from "@mui/icons-material/Analytics";
 import FlagIcon from "@mui/icons-material/Flag";
 import CircleNotificationsIcon from "@mui/icons-material/CircleNotifications";
-import LogoutIcon from "@mui/icons-material/Logout";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import { useNavigate } from "react-router-dom";
+// import LogoutIcon from "@mui/icons-material/Logout";
+// import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+// import { useNavigate } from "react-router-dom";
 import FadeMenu from "./FadeMenu";
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: (theme.palette.mode = "rgb(213, 216, 222)"),
@@ -58,17 +52,19 @@ const Item = styled(Paper)(({ theme }) => ({
   textAlign: "center",
   color: theme.palette.text.secondary,
   height: "16rem",
+  // width: "90%",
   width: "20rem",
-  marginLeft: "3rem",
-  boxShadow: "2px 2px 1px rgba(145, 153, 153, 0.7)",
+  marginLeft: "2rem",
+  boxShadow: "3px 3px 2px rgba(145, 153, 153, 0.7)",
 }));
-const UserBox = styled(Box)(({ theme }) => ({
+const SearchIconWrapper = styled("div")(({ theme }) => ({
+  padding: theme.spacing(0, 1),
+  height: "100%",
+  position: "absolute",
+  pointerEvents: "none",
   display: "flex",
   alignItems: "center",
-  gap: "10px",
-  [theme.breakpoints.up("sm")]: {
-    display: "none",
-  },
+  justifyContent: "center",
 }));
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
@@ -90,44 +86,6 @@ const Search = styled("div")(({ theme }) => ({
   padding: "0 10px",
   borderRadius: theme.shape.borderRadius,
   width: "20%",
-  [theme.breakpoints.down("sm ")]: {
-    backgroundColor: "red",
-  },
-}));
-const SearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: "100%",
-  position: "absolute",
-  pointerEvents: "none",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-}));
-const Icons = styled(Box)(({ theme }) => ({
-  display: "none",
-  alignItems: "center",
-  gap: "20px",
-  [theme.breakpoints.up("sm")]: {
-    display: "flex",
-  },
-}));
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: "inherit",
-  "& .MuiInputBase-input": {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create("width"),
-    backgroundColor: "white",
-    // chng
-    width: "100%",
-    // [theme.breakpoints.up("sm")]: {
-    //   width: "15ch",
-    //   "&:focus": {
-    //     width: "25ch",
-    //   },
-    // },
-  },
 }));
 
 const drawerWidth = 260;
@@ -143,7 +101,7 @@ function SidenavBar(props) {
   const drawer = (
     <div
       style={{
-        backgroundColor: "#2C566D",
+        backgroundColor: "#032b40",
         height: "100vh",
         // chng
         // marginTop: "25%",
@@ -357,8 +315,6 @@ function SidenavBar(props) {
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
-  const navigate = useNavigate();
-  const [open, setOpen] = useState(false);
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -370,33 +326,28 @@ function SidenavBar(props) {
           ml: { sm: `${drawerWidth}px` },
         }}
       >
-        <StyledToolbar style={{ backgroundColor: "#2C566D" }}>
-          {/* <Toolbar style={{ backgroundColor: "#2C566D" }}> */}
+        <StyledToolbar style={{ backgroundColor: "#032b40" }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
+            sx={{ mr: 1, display: { sm: "none" } }}
           >
             <MenuIcon />
           </IconButton>
-          {/* <Search
-            sx={{ display: { xs: "none", sm: "block" } }}
-            style={{ color: "grey" }}
-          >
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              style={{ color: "grey" }}
-              placeholder="Search Something.."
-              inputProps={{ "aria-label": "search" }}
+          <SearchIconWrapper>
+            <SearchIcon
+              style={{
+                color: "#043752",
+              }}
             />
-          </Search> */}
+          </SearchIconWrapper>
           <Search>
-            {/* <SearchIcon /> */}
-            <InputBase placeholder="search..." />
+            <InputBase
+              style={{ marginLeft: "1.7rem" }}
+              placeholder="search.."
+            />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "flex", md: "flex" } }}>
@@ -411,45 +362,14 @@ function SidenavBar(props) {
               color="inherit"
             >
               <Badge color="error">
-                <CircleNotificationsIcon style={{ marginRight: "1rem" }} />
+                <CircleNotificationsIcon style={{ marginRight: "0rem" }} />
                 {/* <AccountCircle /> */}
               </Badge>
             </IconButton>
-            {/* <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              // aria-controls={menuId}
-              aria-haspopup="true"
-              // onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton> */}
           </Box>
-          {/* <Box sx={{ display: { xs: "flex", md: "flex" } }}>
-            <IconButton
-              size="large"
-              aria-label="show 1 new notifications"
-              color="inherit"
-            >
-              <Badge color="error">
-                <LogoutIcon
-                  onClick={() => {
-                    localStorage.removeItem("token");
-                    navigate("/");
-                  }}
-                  style={{ marginRight: "1rem" }}
-                />
-              </Badge>
-            </IconButton>
-          </Box> */}
           <FadeMenu />
-          {/* </Toolbar> */}
         </StyledToolbar>
       </AppBar>
-      {/* {renderMobileMenu}
-      {renderMenu} */}
       <Box
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
@@ -492,7 +412,7 @@ function SidenavBar(props) {
         component="main"
         sx={{
           flexGrow: 1,
-          p: 3,
+          p: 2,
           width: { sm: `calc(100% - ${drawerWidth}px)`, marginTop: "7%" },
         }}
       >
